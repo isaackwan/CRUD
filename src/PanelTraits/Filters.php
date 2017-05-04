@@ -142,6 +142,10 @@ trait Filters
                 return true;
                 break;
 
+            case url($this->route.'/excelDownload'):
+                return true;
+                break;
+
             default:
                 return false;
                 break;

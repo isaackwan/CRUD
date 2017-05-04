@@ -150,7 +150,7 @@ trait CrudTrait
             $file_path = $file->storeAs($destination_path, $new_file_name, $disk);
 
             // 3. Save the complete path to the database
-            $this->attributes[$attribute_name] = $file_path;
+            $this->attributes[$attribute_name] = Storage::disk($disk)->url($file_path);
         }
     }
 
@@ -198,7 +198,7 @@ trait CrudTrait
                     $file_path = $file->storeAs($destination_path, $new_file_name, $disk);
 
                     // 3. Add the public path to the database
-                    $attribute_value[] = $file_path;
+                    $attribute_value[] = Storage::disk($disk)->url($file_path);
                 }
             }
         }
